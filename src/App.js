@@ -41,8 +41,8 @@ const App = () => {
 
   const openDetails = props => {
     const { detailInfo, id } = props
-    console.log('openDetails id : ', id)
-    console.log('detailInfo : ', detailInfo.name)
+    // console.log('openDetails id : ', id)
+    // console.log('detailInfo : ', detailInfo.name)
     setDetailInfo(detailInfo)
     setCurrentCharacter(id)
   }
@@ -50,7 +50,6 @@ const App = () => {
   const closeDetails = () => {
     setCurrentCharacter(null)
     setDetailInfo(null)
-    console.log('poipoi')
   }
 
 
@@ -63,23 +62,23 @@ const App = () => {
 
   } else if (characters) {
     return (
-    <div className={`app background`}>      
-      <div className={`box-characters`}>
+      <div className={`app background`}>
+        <div className={`box-characters`}>
 
           {errorAPICall.isError && <h2>sorry : {errorAPICall.message}</h2>  /* display if error loading data  */}
 
           {characters && <h1>Characters</h1>}
 
-          { characters ? characters.map(actor => {
+          {characters ? characters.map(actor => {
             // console.log('actor', actor)
             return (<Character info={actor} key={uuid()} openDetails={openDetails} />)
-          }) :  <h3>loading characters</h3> 
-        }
+          }) : <h3>loading characters</h3>
+          }
 
-        {detailInfo && <Details actorId={currentCharacter} detailInfo={detailInfo} close={closeDetails} />}
+          {detailInfo && <Details actorId={currentCharacter} detailInfo={detailInfo} close={closeDetails} />}
 
+        </div>
       </div>
-    </div>
     )
 
   } else {
