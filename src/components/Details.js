@@ -1,24 +1,35 @@
+import { v4 as uuid } from 'uuid';
 
 const Details = props => { 
 
+    // debugger
+    const { actorId, detailInfo, close} = props
 
+   
 
     return (
-        <div className='container'>
-          <h2>Details (of friend with id {/* friendId */}):</h2>
+        <>
+         <h2>{detailInfo.name}'s Details </h2>
+        <div className={`boxDetail overFLow`}>
+         
           {
-            /* details */ false &&
+            detailInfo &&
             <>
-              <p>{/* details.name */} is {/* details.age */}</p>
-              <p>email is {/* details.email */}</p>
-              {/* name */} likes:
-              {/* <ul> */}
-              {/*   {details.hobbies.map((hobby) => <li key={hobby}>{hobby}</li>)} */}
-              {/* </ul> */}
+                { Object.entries(detailInfo).map(([key, value]) => {
+                        // console.log(`${key}: ${value}`)                                 
+                        return (
+                        <div key={uuid()} className={``}>
+                            <div className="boxDetail">{key.replace('_', ' ')} : {value}</div>
+                        </div>
+                        )
+                    })
+                }
             </>
           }
-          <button >Close</button>
+         
         </div>
+        <button className="CloseDetailBtn" onClick={() => { close() }} >Close</button>
+        </>
       )
     
 

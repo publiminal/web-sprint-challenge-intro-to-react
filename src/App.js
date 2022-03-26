@@ -39,13 +39,18 @@ const App = () => {
   *
   */
 
-  const openDetails = id => {
+  const openDetails = props => {
+    const { detailInfo, id } = props
     console.log('openDetails id : ', id)
+    console.log('detailInfo : ', detailInfo.name)
+    setDetailInfo(detailInfo)
     setCurrentCharacter(id)
   }
 
   const closeDetails = () => {
     setCurrentCharacter(null)
+    setDetailInfo(null)
+    console.log('poipoi')
   }
 
 
@@ -71,7 +76,7 @@ const App = () => {
           }) :  <h3>loading characters</h3> 
         }
 
-        {characters && <Details actorId={currentCharacter} close={closeDetails} />}
+        {detailInfo && <Details actorId={currentCharacter} detailInfo={detailInfo} close={closeDetails} />}
 
       </div>
     </div>

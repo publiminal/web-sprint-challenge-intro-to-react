@@ -12,7 +12,7 @@ const Character = props => {
         <div className="boxChar">
             <div className={`character`}>
                 <p className="actorName" >{info.name}</p>
-                <button className="actorBtn" onClick={() => openDetails(info.birth_year) }>{info.birth_year}</button>
+                <button className="actorBtn" onClick={() => openDetails({detailInfo:info, id:info.birth_year}) }>{info.birth_year}</button>
             </div>
         </div>
     )
