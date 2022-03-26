@@ -15,7 +15,6 @@ const App = () => {
   *  @param errorAPICall {string} : Star Wars / MSW API call error 
   */ //////////////////////////////////////////////////////////////////////////
   const [characters, setCharacters] = useState(null)
-  const [currentCharacter, setCurrentCharacter] = useState(null)
   const [errorAPICall, setErrorAPICall] = useState({ isError: false, message: 'URL error' })
   const [detailInfo, setDetailInfo] = useState(null)
 
@@ -44,11 +43,9 @@ const App = () => {
     // console.log('openDetails id : ', id)
     // console.log('detailInfo : ', detailInfo.name)
     setDetailInfo(detailInfo)
-    setCurrentCharacter(id)
   }
 
   const closeDetails = () => {
-    setCurrentCharacter(null)
     setDetailInfo(null)
   }
 
@@ -75,7 +72,7 @@ const App = () => {
           }) : <h3>loading characters</h3>
           }
 
-          {detailInfo && <Details actorId={currentCharacter} detailInfo={detailInfo} close={closeDetails} />}
+          {detailInfo && <Details detailInfo={detailInfo} close={closeDetails} />}
 
         </div>
       </div>

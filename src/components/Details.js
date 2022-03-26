@@ -3,7 +3,7 @@ import { v4 as uuid } from 'uuid';
 const Details = props => { 
 
     // debugger
-    const { actorId, detailInfo, close} = props
+    const { detailInfo, close} = props
 
    
 
